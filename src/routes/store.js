@@ -11,7 +11,7 @@ const {
    deleteStore,
 } = require('../controllers/store');
 
-router.post('/stores', register);
+router.post('/stores', auth, verifySeller, register);
 // router.route('/stores').get(getAllStores);
 router
    .route('/stores/:id')
