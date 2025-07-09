@@ -33,7 +33,7 @@ const checkout = async (req, res) => {
 
          return {
             price_data: {
-               currency: 'eur',
+               currency: 'usd',
                product_data: {
                   name: product.name,
                },

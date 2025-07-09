@@ -20,7 +20,9 @@ const getAllProducts = async (req, res) => {
 const createProduct = async (req, res) => {
    const store = await Store.findOne({ owner: req.user.userId });
 
-   const { name, price, desc, category, colors, sizes, qty } = req.body;
+   const { name, price, desc, category, qty } = req.body;
+   const colors = req.body.colors ? await JSON.parse(req.body.colors) : [];
+   const sizes = req.body.sizes ? JSON.parse(req.body.sizes) : [];
 
    if (!req.file) {
       throw new BadRequestError('Adiciona a imagem do produto.');
@@ -33,8 +35,8 @@ const createProduct = async (req, res) => {
       price,
       desc,
       category,
-      colors: JSON.parse(colors),
-      sizes: JSON.parse(sizes),
+      colors,
+      sizes,
       qty,
       image: `/uploads/produtos/${imageName}`,
       storeId: store._id,
