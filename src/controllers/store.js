@@ -1,6 +1,10 @@
 const User = require('../models/User');
 const Store = require('../models/Store');
-const { NotFoundError, UnauthenticatedError } = require('../errors');
+const {
+   NotFoundError,
+   UnauthenticatedError,
+   BadRequestError,
+} = require('../errors');
 const { StatusCodes } = require('http-status-codes');
 
 const register = async (req, res) => {

@@ -36,6 +36,7 @@ const storeSchema = new mongoose.Schema({
       type: String,
       required: [true, 'Insira o IBAN onde deseja receber os pagamentos.'],
       unique: true,
+      trim: true,
       match: [
          /^AO\d{21}$/,
          "O IBAN deve começar com 'AO' seguido de 21 dígitos numéricos.",
