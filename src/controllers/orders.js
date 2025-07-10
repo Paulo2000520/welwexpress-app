@@ -94,13 +94,13 @@ const createOrder = async (req, res) => {
       <p>Por favor acesse o seu painel para maior detalhe dos produtos.</p>
    `;
 
-   sendEmail(msg, 'Pedido de Produto.', seller.email);
-
    res.status(StatusCodes.CREATED).json({
       msg: 'Pedido criado com sucesso!',
       orderId: order._id,
       clientSecret: paymentIntent.client_secret,
    });
+
+   sendEmail(msg, 'Pedido de Produto.', seller.email);
 };
 
 const updateOrder = async (req, res) => {
