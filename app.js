@@ -10,13 +10,7 @@ const app = express();
 
 const connect = require('./src/db/connect');
 
-app.use(
-   cors({
-      origin: ['http://localhost/api/v1', 'http://127.0.0.1:5500'],
-      methods: ['GET', 'POST', 'PATCH', 'DELETE'],
-      allowedHeaders: ['Content-Type', 'Authorization'],
-   })
-);
+app.use(cors()); // Permite todas as origins
 
 app.use(express.json());
 
